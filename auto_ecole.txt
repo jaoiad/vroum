@@ -1,0 +1,71 @@
+<mcd>
+<entite>
+
+moniteur
+     -id 
+     -nom
+
+client
+     -id
+     -nom
+
+voiture
+     -id
+     -immatriculation
+
+lecon
+     -id
+     -heure debut
+     -heure fin
+    
+
+
+</entite>
+
+<association>
+ affecter a :
+        -moniteur 0,N
+        -lecon  1,1 (on prend le 1 (max) dans la table lecon je rajoutte moniteur et je lui associe FK)
+
+ affecter a:
+        -lecon  0,1     (on prend le 1 (max) dans la table lecon je rajoutte voiture et je lui associe FK)
+        -voiture 1,N   
+
+affecter a:
+        -lecon 1,N (pour une lecon j'ai combien de client)
+        -client 1,N (pour un client j'ai combien de lecon)      
+        
+</association>
+
+<MLD>
+
+moniteur
+     -id (PK)
+     -nom
+
+client
+     -id (pk)
+     -nom
+
+voiture
+     -id (PK)
+     -immatriculation
+    
+lecon
+     - id (PK)
+     - date
+     - heure debut
+     - heure de fin
+     - le_moniteur (FK)
+     - le_voiture (FK)
+
+planning         *(N,N) = on cree une table est associer a 2 cle etrangere(FK)
+     -id(pk)  
+     -id_lecon(FK)     
+     -id_client(FK)
+    
+
+</MLD>
+
+
+</mcd>
